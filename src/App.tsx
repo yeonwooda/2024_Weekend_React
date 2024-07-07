@@ -1,16 +1,13 @@
-import LargeButton from "./LargeButton";
-import LunchButton from "./LunchButton";
+import AddButton from "./components/atom/AddButton";
+import TodoItem from "./components/molecule/TodoItem";
+import Body from "./components/organism/Body";
+import Head from "./components/organism/Head";
 
 function App() {
   return (
-    <div className="App">
-      <LunchButton />
-      <LunchButton />
-      <LunchButton />
-      <LargeButton />
-      <LargeButton />
-      <LargeButton />
-      <LargeButton />
+    <div className="w-screen mx-auto max-w-lg">
+      <Head />
+      <Body />
     </div>
   );
 }
