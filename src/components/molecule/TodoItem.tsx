@@ -1,8 +1,7 @@
 import { useState } from "react";
-import Label from "../atom/CheckedLabel";
 import RoundCheckBox from "../atom/RoundCheckBox";
+import CheckedLabel from "../atom/CheckedLable";
 import TrashIcon from "../atom/TrashIcon";
-import CheckedLabel from "../atom/CheckedLabel";
 
 export type TodoItemProps = {
   id: number;
@@ -15,11 +14,11 @@ const TodoItem = ({ contents, onDelete }: TodoItemProps) => {
   const handleCheck = () => setIsChecked((prev) => !prev);
 
   const obj = {
-    roundCheckBox: {
+    roundChekBox: {
       isChecked,
       handleCheck,
     },
-    CheckedLabel: {
+    checkedLabel: {
       isChecked,
       contents,
     },
@@ -30,10 +29,11 @@ const TodoItem = ({ contents, onDelete }: TodoItemProps) => {
 
   return (
     <div className="flex items-center gap-5">
-      <RoundCheckBox {...obj.roundCheckBox} />
-      <CheckedLabel {...obj.CheckedLabel} />
+      <RoundCheckBox {...obj.roundChekBox} />
+      <CheckedLabel {...obj.checkedLabel} />
       {isChecked && <TrashIcon {...obj.trashIcon} />}
     </div>
   );
 };
+
 export default TodoItem;

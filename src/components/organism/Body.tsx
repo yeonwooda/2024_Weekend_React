@@ -6,16 +6,15 @@ import {
   localGet,
   localSet,
   userInput,
-} from "../../utils/util";
-import { INFO } from "../../constants/info";
-import APIKEY from "../../constants/apiKey";
+} from "../utils/util";
+import { INFO } from "../../constants/infoMessage";
 
 const Body = () => {
   const [id, setId] = useState<number>(0);
   const [todoitems, setTodoitems] = useState<TodoItemProps[]>([]);
 
   const addItem = () => {
-    const newData = { id: id, contents: userInput(INFO.TODO) };
+    const newData = { id, contents: userInput(INFO.TODO) };
     setTodoitems((prev) => {
       const updatedData = [...prev, newData];
       localSet(updatedData);
@@ -27,7 +26,7 @@ const Body = () => {
   const deleteItem = (id: number) => {
     setTodoitems((prev) => {
       const updatedData = prev.filter((value) => value.id !== id);
-      localStorage.setItem(APIKEY.LOCAL, JSON.stringify(updatedData));
+      localSet(updatedData);
       return updatedData;
     });
   };

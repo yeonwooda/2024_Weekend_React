@@ -1,4 +1,4 @@
-import { alarm } from "../../utils/util";
+import { alarm } from "../utils/util";
 
 export type RoundCheckBoxProps = {
   isChecked?: boolean;
